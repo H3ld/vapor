@@ -1,0 +1,20 @@
+#set("content") {
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">#(acronym.long)</h1>
+      <p class="lead">#(acronym.short)</p>
+      #if(categories) {
+        <p class="lead">Part of following Categories:</p>
+        <ul class="list-group">
+          #for(category in categories) {
+            <li class="list-group-item">#(category.name)</li>
+          }
+        </ul>
+      }
+      <hr class="my-4">
+      <p>Published by: <a href="/users/#(creator.id)"> #(creator.username)</a></p>
+    </div>
+
+  </div>
+}
+#embed("base")

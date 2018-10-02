@@ -1,0 +1,29 @@
+#set("content") {
+  <h2>#(user.username) profile summary</h2>
+  <p>
+    Ligula dictum ultrices efficitur class curabitur sagittis nunc magna feugiat congue fringilla, eleifend facilisis quam condimentum pharetra litora erat consectetur ac. Primis gravida fames diam a pretium, fringilla curae natoque urna et duis, aliquet nec quam integer. Finibus gravida lacinia urna ligula auctor vulputate euismod ullamcorper sollicitudin pharetra dignissim, morbi aliquam sed egestas inceptos eu sodales donec ornare mauris, curabitur proin parturient himenaeos accumsan nibh ex rhoncus consequat massa. Hendrerit arcu non vulputate accumsan magna velit sociosqu finibus, eu nullam placerat auctor porta.
+  </p>
+  #if(acronyms) {
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Short
+            </th>
+            <th>
+              Long
+            </th>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        #for(acronym in acronyms) {
+          <tr><td><a href="/acronyms/#(acronym.id)"> #(acronym.short)</a></td><td>#(acronym.long)</td></tr>
+        }
+      </tbody>
+    </table>
+    } else {
+      <h3>It seems like #(user.username) never published any acronyms.</h3>
+    }
+  }
+#embed("base")

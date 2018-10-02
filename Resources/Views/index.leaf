@@ -1,0 +1,28 @@
+#set("content") {
+  <img src="/images/logo.png" class="mx-auto d-block max-height: 50%" />
+  <h1>Acronyms</h1>
+  #if(acronyms) {
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <tr><th>Short</th><th>Long</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        #for(acronym in acronyms) {
+          <tr>
+            <td><a href="/acronyms/#(acronym.id)"> #(acronym.short)</a></td>
+            <td>#(acronym.long)</td>
+            <td>
+              <form method="post">
+                <button type="button" class="btn btn-danger d-inline-flex p-2" value="#(acronym)">Delete</button>
+                <button type="button" class="btn btn-primary d-inline-flex p-2" value="#(acronym)">Update</button>
+              </form>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } else {
+    <h2>It feels empty.</h2>
+  }
+}
+#embed("base")
